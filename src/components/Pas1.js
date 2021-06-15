@@ -4,21 +4,25 @@ export const Pas1 = () => {
       <h2>Dades personals</h2>
       <div className="form-group">
         <label htmlFor="nom">Nom:</label>
-        <input name="nom" type="text" />
+        <input className="form-control" id="nom" type="text" required />
       </div>
       <div className="form-group">
         <label htmlFor="cognoms">Cognoms:</label>
-        <input name="cognoms" type="text" />
+        <input className="form-control" id="cognoms" type="text" required />
       </div>
       <div className="form-group">
         <label htmlFor="data-naixement">Data de naixement:</label>
-        <input name="data-naixement" type="text" />
+        <input
+          className="form-control"
+          id="data-naixement"
+          type="date"
+          required
+        />
       </div>
       <div className="form-group">
         <label htmlFor="correu">Correu electrònic:</label>
-        <input name="correu" type="text" />
+        <input className="form-control" id="correu" type="email" required />
       </div>
-      <button className="boto-pas">Següent</button>
     </>
   );
 };
