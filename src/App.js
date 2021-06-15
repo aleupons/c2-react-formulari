@@ -1,6 +1,6 @@
-import Pas1 from "Pas1";
-import Pas2 from "Pas2";
-import Pas3 from "Pas3";
+import { Pas1 } from "./components/Pas1";
+import { Pas2 } from "./components/Pas2";
+import { Pas3 } from "./components/Pas3";
 
 function App() {
   return (
