@@ -42,6 +42,14 @@ export const Pas2 = (props) => {
           required
         />
       </div>
+      <p
+        className="aler alert-danger"
+        hidden={
+          usuari.contrassenya === repetirContrassenya || !repetirContrassenya
+        }
+      >
+        La contrassenya ha de ser la mateixa
+      </p>
 
       <div className="d-flex justify-content-between">
         <button className={`btn btn-primary`} onClick={invalidarPas1}>

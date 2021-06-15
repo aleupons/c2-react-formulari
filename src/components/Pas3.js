@@ -45,6 +45,16 @@ export const Pas3 = (props) => {
           Recordar contrassenya
         </label>
       </div>
+      <p
+        className="aler alert-danger"
+        hidden={
+          (usuariLogin === usuari && contrassenyaLogin === contrassenya) ||
+          !usuariLogin ||
+          !contrassenyaLogin
+        }
+      >
+        El nom d'usuari o la contrassenya no són correctes
+      </p>
 
       <div className="d-flex justify-content-between">
         <button className={`btn btn-primary`} onClick={invalidarPas2}>

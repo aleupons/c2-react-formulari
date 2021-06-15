@@ -1,7 +1,15 @@
 import { PropTypes } from "prop-types";
+import { useState } from "react";
 
 export const Pas1 = (props) => {
   const { visible, validarPas1, usuari, setUsuari } = props;
+  const calcularEdat = (dataNaixement) => {
+    const data = new Date(Date.now());
+    const diferencia = new Date(data.getTime() - Date.parse(dataNaixement));
+    const edat = Math.abs(diferencia.getFullYear() - 1970);
+    return edat;
+  };
+  const [anys, setAnys] = useState(0);
   return (
     <div className={visible ? "" : "off"}>
       <h2>Dades personals</h2>
@@ -34,11 +42,13 @@ export const Pas1 = (props) => {
           id="data-naixement"
           type="date"
           value={usuari.dataNaixement}
-          onChange={(e) =>
-            setUsuari({ ...usuari, dataNaixement: e.target.value })
-          }
+          onChange={(e) => {
+            setUsuari({ ...usuari, dataNaixement: e.target.value });
+            setAnys(calcularEdat(usuari.dataNaixement));
+          }}
           required
         />
+        <p>{anys} anys</p>
       </div>
       <div className="form-group">
         <label htmlFor="correu">Correu electrònic:</label>

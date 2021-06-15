@@ -14,6 +14,8 @@ function App() {
     cognoms: "",
     dataNaixement: "",
     correu: "",
+    usuari: "",
+    contrassenya: "",
   });
   const validarPas1 = () => {
     setPas1Visible(false);
