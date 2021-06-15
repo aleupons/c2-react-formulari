@@ -1,24 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import Pas1 from "Pas1";
+import Pas2 from "Pas2";
+import Pas3 from "Pas3";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Pas1 />
+      <Pas2 />
+      <Pas3 />
+    </>
   );
 }
 
