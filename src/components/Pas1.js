@@ -1,3 +1,7 @@
 export const Pas1 = () => {
-  return;
+  return (
+    <>
+      <button className="boto-pas">Següent</button>
+    </>
+  );
 };
