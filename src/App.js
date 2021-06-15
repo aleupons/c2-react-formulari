@@ -5,21 +5,61 @@ import { Pas3 } from "./components/Pas3";
 import { Resum } from "./components/Resum";
 
 function App() {
-  const [pas1, setPas1] = useState(false);
-  const [pas2, setPas2] = useState(false);
-  const [pas3, setPas3] = useState(false);
+  const [pas1Visible, setPas1Visible] = useState(true);
+  const [pas2Visible, setPas2Visible] = useState(false);
+  const [pas3Visible, setPas3Visible] = useState(false);
+  const [resumVisible, setResumVisible] = useState(false);
+  const [usuari, setUsuari] = useState({
+    nom: "",
+    cognoms: "",
+    dataNaixement: "",
+    correu: "",
+  });
+  const validarPas1 = () => {
+    setPas1Visible(false);
+    setPas2Visible(true);
+  };
+  const invalidarPas1 = () => {
+    setPas1Visible(true);
+    setPas2Visible(false);
+  };
+  const validarPas2 = () => {
+    setPas2Visible(false);
+    setPas3Visible(true);
+  };
+  const invalidarPas2 = () => {
+    setPas2Visible(true);
+    setPas3Visible(false);
+  };
+  const validarPas3 = () => {
+    setPas3Visible(false);
+    setResumVisible(true);
+  };
   return (
     <div className="container-fluid container-md">
+      <h1 className="text-center">Formulari</h1>
       <form>
-        <Pas1 />
-        <Pas2 pas1={pas1} />
-        <Pas3 pas2={pas2} />
+        <Pas1
+          visible={pas1Visible}
+          validarPas1={validarPas1}
+          usuari={usuari}
+          setUsuari={setUsuari}
+        />
+        <Pas2
+          visible={pas2Visible}
+          invalidarPas1={invalidarPas1}
+          validarPas2={validarPas2}
+          usuari={usuari}
+          setUsuari={setUsuari}
+        />
+        <Pas3
+          visible={pas3Visible}
+          invalidarPas2={invalidarPas2}
+          validarPas3={validarPas3}
+          usuari={usuari}
+        />
       </form>
-      <div className="d-flex justify-content-between">
-        <button className="btn btn-primary">Anterior</button>
-        <button className="btn btn-primary">Següent</button>
-      </div>
-      <Resum pas3={pas3} />
+      <Resum visible={resumVisible} usuari={usuari} />
     </div>
   );
 }
